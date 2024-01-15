@@ -57,7 +57,7 @@ useEffect(() => {
     const { response } = await runServerless({ name: "myFunc", parameters: { text: text, attachment: docAttached, adId: adId } });
     setDocAttached(response.docAttached);
     sendAlert({ message: response.updateMessage });
-
+    console.log(response);
   };
 
 
