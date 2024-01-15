@@ -2,7 +2,7 @@
   "appFunctions": {
     "myFunc": {
       "file": "example-function.js",
-      "secrets": []
+      "secrets": ["jahr_media_sandbox_secret"]
     }
   }
 }
