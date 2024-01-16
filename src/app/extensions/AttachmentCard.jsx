@@ -32,20 +32,15 @@ useEffect(() => {
     .then(properties => {
       setDocAttached(properties.druckunterlage_vorhanden_);
       setAdId(properties.hs_object_id);
-      /* if(properties.druckunterlage_vorhanden_ === "True"){
-        setButton("Remove ");
-      }else{
-        setButton("Confirm");
-      } */
   });
 }, [fetchProperties]);
  
 useEffect(() => {
   
       if(docAttached=== "True"){
-        setButton("Remove Attachment");
+        setButton("Druckunterlage entfernt");
       }else{
-        setButton("Confirm Attachment");
+        setButton("Druckunterlage bestätigen");
       }
 
 }, [docAttached]);
@@ -65,10 +60,9 @@ useEffect(() => {
     <>
       <Text>
         <Text format={{ fontWeight: "bold" }}>
-          Update Attachment Property
+          Bestätigung der Druckunterlage
         </Text>
-       Please, click the button to confirm the ad file was attached or removed.
-       
+        Um zu bestätigen, dass ein Anhang hochgeladen oder entfernt wurde, klicken Sie bitte auf den Button. 
       </Text>
       <Flex direction="row" align="end" gap="small">
         <Button 
