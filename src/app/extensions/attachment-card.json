@@ -2,10 +2,10 @@
   "type": "crm-card",
   "data": {
     "title": "Attachments",
-    "uid": "get_started_card",
+    "uid": "attachment_card",
     "location": "crm.record.sidebar",
     "module": {
-      "file": "Example.jsx"
+      "file": "AttachmentCard.jsx"
     },
     "objectTypes": [{ "name": "p_anzeigen" }]
   }

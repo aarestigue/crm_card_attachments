@@ -1,8 +1,8 @@
 {
   "appFunctions": {
     "myFunc": {
-      "file": "example-function.js",
-      "secrets": ["jahr_media_sandbox_secret"]
+      "file": "update-ad-record.js",
+      "secrets": ["jahr_media_sandbox_secret", "jahr_media_standard_secret"]
     }
   }
 }

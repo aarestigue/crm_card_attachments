@@ -5,7 +5,7 @@ async function updateAd(adId, properties, headers){
 
   try{
 
-    const url = `https://api.hubapi.com/crm/v3/objects/2-116770344/${adId}`;
+    const url = `https://api.hubapi.com/crm/v3/objects/2-116620270/${adId}`;
     const data = properties;
 
     const updateRequest = await axios.patch(url, data, headers);
@@ -22,7 +22,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${process.env.jahr_media_sandbox_secret}`,
+      "Authorization": `Bearer ${process.env.jahr_media_standard_secret}`,
     }
   }
   
