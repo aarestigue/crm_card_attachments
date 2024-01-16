@@ -57,20 +57,20 @@ exports.main = async(context = {}, sendResponse) => {
 
     if(updateProperty.status && updateProperty.status === 200 && docStatus === "False" || updateProperty.status && updateProperty.status === 201 && docStatus === "False" ){
       response = {
-        updateMessage: "Attachment was removed succesfully!",
+        updateMessage: "Die Dateientfernung wurde erfolgreich aktualisiert",
         docAttached: docStatus,
         buttonText: "Confirm Attachment"
 
       }
     }else if(updateProperty.status && updateProperty.status === 200 && docStatus === "True" || updateProperty.status && updateProperty.status === 201 && docStatus === "True"){
       response = {
-        updateMessage: "Attachment was confirmed succesfully!",
+        updateMessage: "Die Anzeigenbestätigung wurde erfolgreich aktualisiert!",
         docAttached: docStatus,
         buttonText: "Remove confirmation"
       }  
     }else{
       response = {
-        updateMessage: "There was an error. Please try again",
+        updateMessage: "Es ist ein fehler aufgetreten. Bitte versuchen sie es erneut.",
         docAttached: docStatus,
         buttonText: "Confirm Attachment"
       }
@@ -83,7 +83,7 @@ exports.main = async(context = {}, sendResponse) => {
   } catch (error) {
     console.log(error);
     response = {
-      updateMessage: `There was an error. Please try again. Error: ${error.message}`,
+      updateMessage: `Es ist ein fehler aufgetreten. Bitte versuchen sie es erneut. Error: ${error.message}`,
       docAttached: docStatus,
       buttonText: "Confirm Attachment"
     }
