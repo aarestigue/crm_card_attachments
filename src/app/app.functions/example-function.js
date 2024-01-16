@@ -22,7 +22,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${process.env.HAPIKEY_JAHR_MEDIA}`,
+      "Authorization": `Bearer ${process.env.jahr_media_sandbox_secret}`,
     }
   }
   
