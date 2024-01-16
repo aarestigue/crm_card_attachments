@@ -49,7 +49,7 @@ useEffect(() => {
   // Call serverless function to execute with parameters.
   // The `myFunc` function name is configured inside `serverless.json`
   const handleClick = async () => {
-    const { response } = await runServerless({ name: "myFunc", parameters: { text: text, attachment: docAttached, adId: adId } });
+    const { response } = await runServerless({ name: "updateAdRecord", parameters: { text: text, attachment: docAttached, adId: adId } });
     setDocAttached(response.docAttached);
     sendAlert({ message: response.updateMessage });
     console.log(response);
