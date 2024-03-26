@@ -44,7 +44,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      'authorization': `Bearer ${process.env["anzeigen_app"]}`,
+      'authorization': `Bearer ${process.env.jahr_media_standard_secret}`,
     }
   }
   
