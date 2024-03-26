@@ -22,7 +22,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${process.env.CRM_UI_APP}`,
+      'Authorization': `Bearer ${context.secrets.CRM_UI_APP}`,
     }
   }
   
