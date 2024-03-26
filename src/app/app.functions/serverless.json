@@ -2,7 +2,7 @@
   "appFunctions": {
     "updateAdRecord": {
       "file": "update-ad-record.js",
-      "secrets": ["jahr_media_standard_secret"]
+      "secrets": []
     }
   }
 }
