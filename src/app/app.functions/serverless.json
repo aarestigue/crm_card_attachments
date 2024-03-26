@@ -1,7 +1,7 @@
 {
   "appFunctions": {
     "updateAdRecord": {
-      "file": "update-ad-record.js",
+      "file": "update_ad_record.js",
       "secrets": ["anzeigen_app"]
     }
   }
