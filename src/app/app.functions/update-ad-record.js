@@ -6,10 +6,12 @@ async function updateAd(adId, properties, headers){
   try{
  
     const url = `https://api.hubapi.com/crm/v3/objects/2-116620270/${adId}`;
+    //const url = `https://api.hubapi.com/crm/v3/objects/anzeigen/${adId}`;
+    
     const data = properties;
-    var config = {
+    /* var config = {
       method: 'patch',
-      url: `https://api.hubapi.com/crm/v3/objects/2-116620270/${adId}`,
+      url: url,
       headers: { 
         'Authorization': `Bearer ${process.env.PRIVATE_APP_ACCESS_TOKEN}`, 
         'Content-Type': 'application/json'
@@ -24,12 +26,12 @@ async function updateAd(adId, properties, headers){
     })
     .catch(function (error) {
       console.log(error);
-    });
+    }); */
 
 
 
-    //const updateRequest = await axios.patch(url, data, headers);
-    //return updateRequest;
+    const updateRequest = await axios.patch(url, data, headers);
+    return updateRequest;
 
   }catch(err){
     console.log(err);
@@ -42,7 +44,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.PRIVATE_APP_ACCESS_TOKEN}`,
+      'authorization': `Bearer ${process.env.anzeigen_app}`,
     }
   }
   
