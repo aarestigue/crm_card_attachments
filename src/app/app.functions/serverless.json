@@ -2,7 +2,7 @@
   "appFunctions": {
     "updateAdRecord": {
       "file": "update-ad-record.js",
-      "secrets": []
+      "secrets": ["CRM_UI_APP"]
     }
   }
 }
