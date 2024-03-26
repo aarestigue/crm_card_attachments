@@ -22,7 +22,7 @@ exports.main = async(context = {}, sendResponse) => {
   const headers = {
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${process.env.jahr_media_standard_secret}`,
+      "Authorization": `Bearer ${process.env.PRIVATE_APP_ACCESS_TOKEN}`,
     }
   }
   
