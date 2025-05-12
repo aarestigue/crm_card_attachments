@@ -39,6 +39,24 @@ async function updateAd(adId, properties, headers){
   }
 }
 
+async function updateAd(adId, properties, headers){
+
+  try{
+ 
+    const url = `https://api.hubapi.com/crm/v3/objects/2-116620270/${adId}`;
+    //const url = `https://api.hubapi.com/crm/v3/objects/anzeigen/${adId}`;
+    
+    const data = properties;
+
+    const updateRequest = await axios.patch(url, data, headers);
+    return updateRequest;
+
+  }catch(err){
+    console.log(err);
+    throw err;
+  }
+}
+
 exports.main = async(context = {}, sendResponse) => {
   
   const headers = {
