@@ -2,7 +2,7 @@
   "name": "Thorit CRM Customization",
   "description": "This private app is for exclusive use of Jahr Media CRM Extensions",
   "uid": "crm_extension_app",
-  "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write", "crm.objects.custom.read", "crm.objects.custom.write"],
+  "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write", "crm.objects.custom.write", "crm.objects.custom.read"],
   "public": false,
   "extensions": {
     "crm": {
