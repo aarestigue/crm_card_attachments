@@ -39,16 +39,35 @@ async function updateAd(adId, properties, headers){
   }
 }
 
-async function updateAd(adId, properties, headers){
+async function createNote(adId, headers, message){
 
   try{
- 
-    const url = `https://api.hubapi.com/crm/v3/objects/2-116620270/${adId}`;
-    //const url = `https://api.hubapi.com/crm/v3/objects/anzeigen/${adId}`;
+    const now = new Date();
+    const isoTimestamp = now.toISOString();
+    console.log(isoTimestamp);
+    const url = `https://api.hubapi.com/crm/v3/objects/notes`;
     
-    const data = properties;
+    const data = {
+      "associations": [
+        {
+          "types": [
+            {
+              "associationCategory": "USER_DEFINED",
+              "associationTypeId": 92
+            }
+          ],
+          "to": {
+            "id": `${adId}`
+          }
+        }
+      ],
+      "properties": {
+        "hs_note_body": `${message}`,
+        "hs_timestamp": `${isoTimestamp}`
+      }
+    }
 
-    const updateRequest = await axios.patch(url, data, headers);
+    const updateRequest = await axios.post(url, data, headers);
     return updateRequest;
 
   }catch(err){
@@ -63,6 +82,7 @@ exports.main = async(context = {}, sendResponse) => {
     headers: {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${process.env.jahr_media_standard_secret}`,
+      //'authorization': `Bearer ${process.env.HAPIKEY_JAHR_MEDIA}`,
     }
   }
   
@@ -96,6 +116,8 @@ exports.main = async(context = {}, sendResponse) => {
     const updateProperty = await updateAd(adId, payload, headers);
 
     if(updateProperty.status && updateProperty.status === 200 && docStatus === "False" || updateProperty.status && updateProperty.status === 201 && docStatus === "False" ){
+      const message = "Druckunterlagen wurden entfernt."
+      const createEngagement = await createNote(adId, headers, message);
       response = {
         updateMessage: "Die Dateientfernung wurde erfolgreich aktualisiert",
         docAttached: docStatus,
@@ -103,6 +125,8 @@ exports.main = async(context = {}, sendResponse) => {
 
       }
     }else if(updateProperty.status && updateProperty.status === 200 && docStatus === "True" || updateProperty.status && updateProperty.status === 201 && docStatus === "True"){
+      const message = "Neue Druckunterlagen wurden hochgeladen."
+      const createEngagement = await createNote(adId, headers, message);
       response = {
         updateMessage: "Die Anzeigenbestätigung wurde erfolgreich aktualisiert!",
         docAttached: docStatus,
